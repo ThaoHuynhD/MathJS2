@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- BÀI 1: QUẢN LÝ TUYỂN SINH -->
+    <div class="diemtuyensinh my-5">
+        <div class="container bg-light p-5">
+            <h3 class="text-center">BÀI 1: QUẢN LÝ TUYỂN SINH</h3>
+            <div class="form-group">
+                <label for="">Điểm chuẩn của hội đồng</label>
+                <input type="number" class="form-control" name="" id="diem-chuan" aria-describedby="" placeholder="">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="diem-mon-1">Điểm môn thứ nhất</label>
+                        <input id="diem-mon-1" class="form-control" type="number" name="diem-mon-1"
+                            placeholder="Điểm môn thứ nhất">
+                    </div>
+                    <div class="col-4">
+                        <label for="diem-mon-2">Điểm môn thứ hai</label>
+                        <input id="diem-mon-2" class="form-control" type="number" name="diem-mon-2"
+                            placeholder="Điểm môn thứ hai">
+                    </div>
+                    <div class="col-4">
+                        <label for="diem-mon-3">Điểm môn thứ ba</label>
+                        <input id="diem-mon-3" class="form-control" type="number" name="diem-mon-3"
+                            placeholder="Điểm môn thứ ba">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="khu-vuc">Khu vực </label>
+                <select id="khu-vuc" class="form-control" name="khu-vuc">
+                    <option value="0">Khu vực khác</option>
+                    <option value="2">Khu vực ưu tiên A</option>
+                    <option value="1">Khu vực ưu tiên B</option>
+                    <option value="0.5">Khu vực ưu tiên C</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="doi-tuong-du-thi">Đối tượng dự thi </label>
+                <select id="doi-tuong-du-thi" class="form-control" name="doi-tuong-du-thi">
+                    <option value="0">Đối tượng khác</option>
+                    <option value="2.5">Đối tượng ưu tiên 1</option>
+                    <option value="1.5">Đối tượng ưu tiên 2</option>
+                    <option value="1">Đối tượng ưu tiên 3</option>
+                </select>
+            </div>
+            <button class="btn btn-success mb-3" onclick="xetTuyenSinh()">Kết quả</button>
+            <div class="alert alert-success" role="alert">
+                <h4 id="ket-qua-xet-tuyen" class="m-0"></h4>
+            </div>
+        </div>
+    </div>
+    <!-- BÀI 2: TÍNH TIỀN ĐIỆN -->
+    <div class="tienDien my-5">
+        <div class="container bg-light p-5">
+            <h3 class="text-center">BÀI 2: TÍNH TIỀN ĐIỆN ĐÃ TIÊU THỤ</h3>
+            <div class="form-group">
+                <label for="ten-khach-hang">Tên khách hàng</label>
+                <input id="ten-khach-hang" class="form-control" type="text" name="">
+                <label for="so-KWH">Số KWH đã sử dụng</label>
+                <input id="so-KWH" class="form-control" type="number" name="">
+            </div>
+            <button class="btn btn-success mb-3" onclick="tinhTienDien()">Kết quả</button>
+            <div class="alert alert-success" role="alert">
+                <h4 id="tong-tien-dien" class="m-0"></h4>
+            </div>
+        </div>
+    </div>
+    <!-- BÀI 3: TÍNH THUẾ THU NHẬP CÁ NHÂN -->
+    <div class="tienThueTNCN my-5">
+        <div class="container bg-light p-5">
+            <h3 class="text-center">BÀI 3: TÍNH THUẾ THU NHẬP CÁ NHÂN</h3>
+            <div class="form-group">
+                <label for="ho-va-ten">Họ và tên:</label>
+                <input id="ho-va-ten" class="form-control" type="text" name="">
+                <div class="form-group">
+                    <label for="tong-thu-nhap-nam">Tổng thu nhập 1 năm (đvt: VNĐ)</label>
+                    <input id="tong-thu-nhap-nam" class="form-control" type="number" name="">
+                </div>
+                <div class="form-group">
+                    <label for="so-nguoi-phu-thuoc">Số người phụ thuộc</label>
+                    <input id="so-nguoi-phu-thuoc" class="form-control" type="number" name="">
+                </div>
+                <button class="btn btn-success mb-3" onclick="tinhTienThueTNCN()">Kết quả</button>
+                <div class="alert alert-success" role="alert">
+                    <h4 id="tong-tien-thue-TNCN" class="m-0"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BÀI 4: TÍNH TIỀN CÁP -->
+    <div class="tienCap my-5">
+        <div class="container bg-light p-5">
+            <h3 class="text-center">BÀI 4: TÍNH TIỀN CÁP</h3>
+            <div class="form-group">
+                <label for="ma-khach-hang">Mã khách hàng:</label>
+                <input id="ma-khach-hang" class="form-control" type="text" name="">
+            </div>
+            <div class="form-group">
+                <label for="loai-khach-hang">Loại khách hàng:</label>
+                <select id="loai-khach-hang" class="custom-select" name="" onchange="anSoKetNoi()">
+                    <option value="nha-dan">Nhà dân</option>
+                    <option value="doanh-nghiep">Doanh Nghiệp</option>
+                </select>
+            </div>
+            <div class="form-group" id="KetNoi">
+                <label for="so-ket-noi">Số kết nối</label>
+                <input id="so-ket-noi" class="form-control" type="number" name="">
+            </div>
+            <div class="form-group">
+                <label for="so-kenh-cao-cap">Số kênh cao cấp</label>
+                <input id="so-kenh-cao-cap" class="form-control" type="number" name="">
+            </div>
+            <button class="btn btn-success mb-3" onclick="tinhTienCap()">Kết quả</button>
+            <div class="alert alert-success" role="alert">
+                <h4 id="tong-tien-cap" class="m-0"></h4>
+            </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

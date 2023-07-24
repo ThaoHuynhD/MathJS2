@@ -44,16 +44,16 @@ function tinhTienDien() {
         TongTienDien = 500 * soKWH;
     }
     else if (soKWH <= 100) {
-        TongTienDien = 500 * 50 + 650 * (soKWH - 50);
+        TongTienDien = 500*50 + 650*(soKWH - 50);
     }
     else if (soKWH <= 200) {
-        TongTienDien = 500 * 50 + 650 * 50 + 850 * (soKWH - 100);
+        TongTienDien = 500*50 + 650*50 + 850*(soKWH - 100);
     }
     else if (soKWH <= 350) {
-        TongTienDien = 500 * 50 + 650 * 50 + 850 * 100 + 1100 * (soKWH - 200);
+        TongTienDien = 500*50 + 650*50 + 850*100 + 1100*(soKWH - 200);
     }
     else {
-        TongTienDien = 500 * 50 + 650 * 50 + 850 * 100 + 1100 * 350 + 1300 * (soKWH - 200);
+        TongTienDien = 500*50 + 650*50 + 850*100 + 1100*150 + 1300 * (soKWH - 350);
     }
     document.getElementById("tong-tien-dien").innerHTML = `Số tiền điện khách hàng ${tenKhachHang} cần thanh toán là ${TongTienDien.toLocaleString()} vnđ`;
 }
@@ -84,22 +84,22 @@ function tinhTienThueTNCN() {
             tongThueTNCN = thuNhapChiuThue * 0.05;
         }
         else if (thuNhapChiuThue <= 120) {
-            tongThueTNCN = 60 * 0.05 + thuNhapChiuThue * 0.1;
+            tongThueTNCN = 60*0.05 + (thuNhapChiuThue-60)*0.1;
         }
         else if (thuNhapChiuThue <= 210) {
-            tongThueTNCN = 60 * 0.05 + 60 * 0.1 + thuNhapChiuThue * 0.15;
+            tongThueTNCN = 60*0.05 + 60*0.1 + (thuNhapChiuThue-120)*0.15;
         }
         else if (thuNhapChiuThue <= 384) {
-            tongThueTNCN = 60 * 0.05 + 60 * 0.1 + 90 * 0.15 + thuNhapChiuThue * 0.2;
+            tongThueTNCN = 60*0.05 + 60*0.1 + 90*0.15 + (thuNhapChiuThue-210)*0.2;
         }
         else if (thuNhapChiuThue <= 624) {
-            tongThueTNCN = 60 * 0.05 + 60 * 0.1 + 90 * 0.15 + 174 * 0.2 + thuNhapChiuThue * 0.25;
+            tongThueTNCN = 60*0.05 + 60*0.1 + 90*0.15 + 174*0.2 + (thuNhapChiuThue-384)*0.25;
         }
         else if (thuNhapChiuThue <= 960) {
-            tongThueTNCN = 60 * 0.05 + 60 * 0.1 + 90 * 0.15 + 174 * 0.2 + + 40 * 0.25 + thuNhapChiuThue * 0.3;
+            tongThueTNCN = 60*0.05 + 60*0.1 + 90*0.15 + 174*0.2 + 240*0.25 + (thuNhapChiuThue-624)*0.3;
         }
         else {
-            tongThueTNCN = 60 * 0.05 + 60 * 0.1 + 90 * 0.15 + 174 * 0.2 + + 40 * 0.25 + 336 * 0.3 + thuNhapChiuThue * 0.35;
+            tongThueTNCN = 60*0.05 + 60*0.1 + 90*0.15 + 174*0.2 + 240*0.25 + 336*0.3 + (thuNhapChiuThue-960)*0.35;
         }
         tongThueTNCN = tongThueTNCN * 1000000;
         document.getElementById("tong-tien-thue-TNCN").innerHTML = `Số tiền thuế TNCN ${hoVaTen} cần phải trả là ${tongThueTNCN.toLocaleString()} vnđ`;
@@ -108,9 +108,11 @@ function tinhTienThueTNCN() {
 function anSoKetNoi() {
     var loaiKhachHang = document.getElementById("loai-khach-hang").value;
     if (loaiKhachHang == "nha-dan") {
-        var anSoKetNoi = document.getElementById("KetNoi");
-        anSoKetNoi.parentNode.removeChild(anSoKetNoi);
+        // var anSoKetNoi = document.getElementById("KetNoi");
+        // anSoKetNoi.parentNode.removeChild(anSoKetNoi);
+document.getElementById("nha-dan").style.di
     }
+
 }
 function tinhTienCap() {
     var maKhachHang = document.getElementById("ma-khach-hang").value;
